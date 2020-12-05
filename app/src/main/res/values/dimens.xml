@@ -3,6 +3,6 @@
     <dimen name="margins">16dp</dimen>
     <dimen name="margins_small">8dp</dimen>
     <dimen name="header_top_margin">30dp</dimen>
-    <dimen name="repo_item_hight">100dp</dimen>
-    <dimen name="thumbnail_size">80dp</dimen>
+    <dimen name="repo_item_hight">90dp</dimen>
+    <dimen name="thumbnail_size">70dp</dimen>
 </resources>

@@ -42,14 +42,14 @@
 
     <!--Style which is used for repositories list header on first screen-->
     <style name="header_text_view.medium">
-        <item name="android:textSize">26sp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:layout_marginTop">@dimen/margins</item>
         <item name="android:layout_marginBottom">@dimen/margins</item>
     </style>
 
     <!--Style which is used for repo author and commits history header text on second screen-->
     <style name="header_text_view.small">
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:layout_marginTop">@dimen/margins_small</item>
         <item name="android:layout_marginBottom">@dimen/margins_small</item>
     </style>

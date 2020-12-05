@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/repo_item_hight"
     android:background="@drawable/rounded_corner_background"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginBottom="@dimen/margins">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/thumbnail_photo"

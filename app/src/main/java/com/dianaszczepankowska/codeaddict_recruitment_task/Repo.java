@@ -7,13 +7,15 @@ public class Repo {
     private String repoURL;
     private String dateOfPublish;
     private String searchTopic;
+    private String numberOfStars;
 
-    public Repo(String repoTitle, String repoAuthor, String repoURL, String dateOfPublish, String searchTopic) {
+    public Repo(String repoTitle, String repoAuthor, String repoURL, String dateOfPublish, String searchTopic, String numberOfStars) {
         this.repoTitle = repoTitle;
         this.repoAuthor = repoAuthor;
         this.repoURL = repoURL;
         this.dateOfPublish = dateOfPublish;
         this.searchTopic = searchTopic;
+        this.numberOfStars = numberOfStars;
     }
 
     public String getRepoTitle() {
@@ -54,5 +56,13 @@ public class Repo {
 
     public void setSearchTopic(String searchTopic) {
         this.searchTopic = searchTopic;
+    }
+
+    public String getNumberOfStars() {
+        return numberOfStars;
+    }
+
+    public void setNumberOfStars(String numberOfStars) {
+        this.numberOfStars = numberOfStars;
     }
 }

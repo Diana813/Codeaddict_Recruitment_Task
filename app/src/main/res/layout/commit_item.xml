@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/margins"
+        android:background="@drawable/rounded_corner_background"
+        android:gravity="center"
+        android:textSize="18sp"
+        tools:text="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/commit_author1"
+            style="@style/regular_text_view"
+            android:textAllCaps="true"
+            android:textColor="@color/blue_text"
+            tools:text="Commit author name" />
+
+        <TextView
+            android:id="@+id/commit_author_email1"
+            style="@style/regular_text_view"
+            android:textColor="@color/black"
+            tools:text="Commit author name" />
+
+        <TextView
+            android:id="@+id/commit_message1"
+            style="@style/regular_text_view"
+            tools:text="This is long message that needs to fold over to the next line" />
+
+    </LinearLayout>
+
+</LinearLayout>

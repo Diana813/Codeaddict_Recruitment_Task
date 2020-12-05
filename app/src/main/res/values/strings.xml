@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Codeaddict_Recruitment_Task</string>
+
+    //Repos list screen
+    <string name="search_header">Search</string>
+    <string name="repos_header">Repositories</string>
+
+    //Repo details screen
+    <string name="back_nav">Back</string>
+    <string name="author_inrtoduction">Repo by</string>
+    <string name="stars">Number of stars</string>
+    <string name="view_online_button">View online</string>
+    <string name="commits_history_header">Commits History</string>
+    <string name="share_repo_button">Share repo</string>
+    <string name="go_to_details">Go to details</string>
+</resources>

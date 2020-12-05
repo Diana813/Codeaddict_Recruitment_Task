@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="@dimen/margins">
+
+    <TextView
+        style="@style/header_text_view.large"
+        android:text="@string/search_header"
+        />
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_background"
+        android:layout_marginVertical="@dimen/margins"
+        />
+
+    <TextView
+        style="@style/header_text_view.medium"
+        android:text="@string/repos_header"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/repoList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/margins"/>
+
+</LinearLayout>

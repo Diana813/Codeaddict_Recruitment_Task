@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="grey_background">#F5F5F5</color>
+    <color name="grey_icons">#9A9A9A</color>
+    <color name="grey_text">#A7A7A7</color>
+    <color name="light_grey_text">#D3D2D4</color>
+    <color name="blue_text">#51A2FC</color>
+    <color name="black">#080808</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="divider_color">#F2F2F7</color>
+</resources>

@@ -1,0 +1,76 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Codeaddict_Recruitment_Task" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/grey_background</item>
+        <item name="colorPrimaryVariant">@color/grey_icons</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/blue_text</item>
+        <item name="colorSecondaryVariant">@color/blue_text</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontFamily">sans-serif-medium</item>
+        <item name="buttonStyle">@style/buttonStyle</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="buttonStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/blue_text</item>
+        <item name="drawableTint">@color/blue_text</item>
+    </style>
+
+    <!--Style which is used for repo title on second sceen-->
+    <style name="header_text_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Style which is used for search header on first screen-->
+    <style name="header_text_view.large">
+        <item name="android:textSize">35sp</item>
+        <item name="android:layout_marginBottom">@dimen/margins</item>
+        <item name="android:layout_marginTop">@dimen/header_top_margin</item>
+    </style>
+
+    <!--Style which is used for repositories list header on first screen-->
+    <style name="header_text_view.medium">
+        <item name="android:textSize">26sp</item>
+        <item name="android:layout_marginTop">@dimen/margins</item>
+        <item name="android:layout_marginBottom">@dimen/margins</item>
+    </style>
+
+    <!--Style which is used for repo author and commits history header text on second screen-->
+    <style name="header_text_view.small">
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_marginTop">@dimen/margins_small</item>
+        <item name="android:layout_marginBottom">@dimen/margins_small</item>
+    </style>
+
+
+    <!--Style used for commit message on second screen-->
+    <style name="regular_text_view">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/light_grey_text</item>
+    </style>
+
+    <!--Style used for author introduction on second screen-->
+    <style name="regular_text_view.large">
+        <item name="textAllCaps">true</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+   <!-- Style used for number of stars on second screen and back navigation-->
+    <style name="regular_text_view.small">
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_margin">@dimen/margins</item>
+    </style>
+</resources>

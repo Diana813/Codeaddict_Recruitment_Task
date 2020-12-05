@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/repo_item_hight"
+    android:background="@drawable/rounded_corner_background"
+    android:orientation="horizontal">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/thumbnail_photo"
+        android:layout_width="@dimen/thumbnail_size"
+        android:layout_height="@dimen/thumbnail_size"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margins"
+        android:background="@drawable/rounded_corner_background"
+        android:backgroundTint="@color/blue_text"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/repo_title"
+            style="@style/header_text_view.small"
+            tools:text="Repo title" />
+
+        <TextView
+            android:id="@+id/repo_stars"
+            style="@style/regular_text_view"
+            android:drawableStart="@drawable/baseline_star_border_black_24"
+            android:drawableTint="@color/grey_icons"
+            android:textSize="20sp"
+            tools:text="355" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.3"
+        android:contentDescription="@string/go_to_details"
+        android:src="@drawable/baseline_navigate_next_black_36"
+        android:tint="@color/grey_icons" />
+</LinearLayout>

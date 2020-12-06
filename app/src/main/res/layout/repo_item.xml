@@ -26,6 +26,8 @@
         <TextView
             android:id="@+id/repo_title"
             style="@style/header_text_view.small"
+            android:textSize="18sp"
+            android:layout_marginBottom="0dp"
             tools:text="Repo title" />
 
         <TextView

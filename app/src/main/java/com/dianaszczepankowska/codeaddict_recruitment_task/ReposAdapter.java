@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHolder> {
@@ -36,7 +38,7 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
     public void setReposList() {
         repoList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            repoList.add(new Repo("Repo Title", "Krzysztof Kowalski", "http/repo", "23-05-2020", "coś ciekawego", "356"));
+            repoList.add(new Repo("Repo Title", "Krzysztof Kowalski", "http/repo", "23-05-2020", "coś ciekawego", "356", R.mipmap.octocat));
         }
         notifyDataSetChanged();
     }
@@ -58,9 +60,20 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
         }
 
 
-        holder.profilePhoto.setImageResource(R.drawable.ic_launcher_foreground);
+        holder.profilePhoto.setImageResource(repoList.get(position).getThumbnail());
         holder.repoTitle.setText(repoList.get(position).getRepoTitle());
         holder.numberOfStars.setText(repoList.get(position).getNumberOfStars());
+
+        holder.itemView.setOnClickListener(v -> {
+            Fragment detailsFragment = RepoDetails.newInstance(
+                    repoList.get(position).getRepoTitle(),
+                    repoList.get(position).getRepoAuthor(),
+                    repoList.get(position).getNumberOfStars(),
+                    repoList.get(position).getRepoURL(),
+                    repoList.get(position).getThumbnail());
+            AppCompatActivity activity = (AppCompatActivity) v.getContext();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailsFragment).addToBackStack(null).commit();
+        });
     }
 
 

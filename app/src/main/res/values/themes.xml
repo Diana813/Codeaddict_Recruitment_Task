@@ -65,7 +65,7 @@
     <!--Style used for author introduction on second screen-->
     <style name="regular_text_view.large">
         <item name="textAllCaps">true</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
    <!-- Style used for number of stars on second screen and back navigation-->

@@ -8,14 +8,16 @@ public class Repo {
     private String dateOfPublish;
     private String searchTopic;
     private String numberOfStars;
+    private int thumbnail;
 
-    public Repo(String repoTitle, String repoAuthor, String repoURL, String dateOfPublish, String searchTopic, String numberOfStars) {
+    public Repo(String repoTitle, String repoAuthor, String repoURL, String dateOfPublish, String searchTopic, String numberOfStars, int thumbnail) {
         this.repoTitle = repoTitle;
         this.repoAuthor = repoAuthor;
         this.repoURL = repoURL;
         this.dateOfPublish = dateOfPublish;
         this.searchTopic = searchTopic;
         this.numberOfStars = numberOfStars;
+        this.thumbnail = thumbnail;
     }
 
     public String getRepoTitle() {
@@ -64,5 +66,13 @@ public class Repo {
 
     public void setNumberOfStars(String numberOfStars) {
         this.numberOfStars = numberOfStars;
+    }
+
+    public int getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(int thumbnail) {
+        this.thumbnail = thumbnail;
     }
 }

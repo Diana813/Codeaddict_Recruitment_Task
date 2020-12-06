@@ -2,7 +2,6 @@ package com.dianaszczepankowska.codeaddict_recruitment_task;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +14,7 @@ import java.util.Objects;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 public class RepoDetails extends Fragment {
 
@@ -23,6 +23,7 @@ public class RepoDetails extends Fragment {
     private TextView numberOfStars;
     private TextView repoTitle;
     private RelativeLayout backgroundPhoto;
+    private TextView backButton;
 
     private String repo_title_extra;
     private String repo_author_extra;
@@ -35,7 +36,7 @@ public class RepoDetails extends Fragment {
     private static final String EXTRA_REPO_URL = "url";
     private static final String EXTRA_REPO_THUMBNAIL = "thumbnail";
 
-    public static RepoDetails newInstance(String repoTile, String repoAuthor, String numberOfStars, String repoURL, int thumbnail) {
+    public static RepoDetails newInstance(String repoTile, String repoAuthor, String numberOfStars, String repoURL, String thumbnail) {
 
         RepoDetails fragment = new RepoDetails();
         Bundle args = new Bundle();
@@ -43,7 +44,7 @@ public class RepoDetails extends Fragment {
         args.putString(EXTRA_REPO_AUTHOR, repoAuthor);
         args.putString(EXTRA_NUMBER_OF_STARS, numberOfStars);
         args.putString(EXTRA_REPO_URL, repoURL);
-        args.putInt(EXTRA_REPO_THUMBNAIL, thumbnail);
+        args.putString(EXTRA_REPO_THUMBNAIL, thumbnail);
         fragment.setArguments(args);
         return fragment;
     }
@@ -75,8 +76,11 @@ public class RepoDetails extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_repo_details, container, false);
+
         findViews(rootView);
         setData();
+        setOnBackButtonClickListener();
+
         return rootView;
     }
 
@@ -85,6 +89,7 @@ public class RepoDetails extends Fragment {
         numberOfStars = rootView.findViewById(R.id.repo_stars);
         repoTitle = rootView.findViewById(R.id.title);
         backgroundPhoto = rootView.findViewById(R.id.details_author_part);
+        backButton = rootView.findViewById(R.id.back_button);
     }
 
     @SuppressLint("SetTextI18n")
@@ -93,5 +98,13 @@ public class RepoDetails extends Fragment {
         numberOfStars.setText(context.getString(R.string.stars) + " " + "(" + repo_number_of_stars_extra + ")");
         repoTitle.setText(repo_title_extra);
         backgroundPhoto.setBackgroundResource(repo_thumbnail_extra);
+    }
+
+    private void setOnBackButtonClickListener() {
+        backButton.setOnClickListener(v -> {
+            FragmentTransaction tx = Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction();
+            tx.replace(R.id.fragment_container, new ReposList());
+            tx.commit();
+        });
     }
 }

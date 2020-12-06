@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.jakewharton.picasso.OkHttp3Downloader;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -21,7 +23,7 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     private LayoutInflater layoutInflater;
-    private List<Repo> repoList;
+    private List<RepoModel> repoList;
 
     public ReposAdapter(Context context) {
         if (context != null) {
@@ -35,11 +37,8 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
     }
 
 
-    public void setReposList() {
-        repoList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            repoList.add(new Repo("Repo Title", "Krzysztof Kowalski", "http/repo", "23-05-2020", "coś ciekawego", "356", R.mipmap.octocat));
-        }
+    public void setReposList(List<RepoModel> repoList) {
+        this.repoList = repoList;
         notifyDataSetChanged();
     }
 
@@ -60,17 +59,21 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
         }
 
 
-        holder.profilePhoto.setImageResource(repoList.get(position).getThumbnail());
         holder.repoTitle.setText(repoList.get(position).getRepoTitle());
         holder.numberOfStars.setText(repoList.get(position).getNumberOfStars());
+
+        Picasso.Builder builder = new Picasso.Builder(context);
+        builder.downloader(new OkHttp3Downloader(context));
+        builder.build().load(repoList.get(position).getAuthorModel().getThumbnail())
+                .into(holder.profilePhoto);
 
         holder.itemView.setOnClickListener(v -> {
             Fragment detailsFragment = RepoDetails.newInstance(
                     repoList.get(position).getRepoTitle(),
-                    repoList.get(position).getRepoAuthor(),
+                    repoList.get(position).getAuthorModel().getRepoAuthor(),
                     repoList.get(position).getNumberOfStars(),
                     repoList.get(position).getRepoURL(),
-                    repoList.get(position).getThumbnail());
+                    repoList.get(position).getAuthorModel().getThumbnail());
             AppCompatActivity activity = (AppCompatActivity) v.getContext();
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailsFragment).addToBackStack(null).commit();
         });

@@ -5,24 +5,25 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/commits_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <include
-            android:id="@+id/firstCommit"
+            android:id="@+id/first_commit"
             layout="@layout/commit_item" />
 
         <include layout="@layout/divider" />
 
         <include
-            android:id="@+id/secondCommit"
+            android:id="@+id/second_commit"
             layout="@layout/commit_item" />
 
         <include layout="@layout/divider" />
 
         <include
-            android:id="@+id/thirdCommit"
+            android:id="@+id/third_commit"
             layout="@layout/commit_item" />
 
         <include layout="@layout/divider" />

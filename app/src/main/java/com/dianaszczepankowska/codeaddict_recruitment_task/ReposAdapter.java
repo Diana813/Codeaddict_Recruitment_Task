@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.dianaszczepankowska.codeaddict_recruitment_task.CommitModel.Commit;
+import com.dianaszczepankowska.codeaddict_recruitment_task.Fragments.RepoDetailsFragment;
+import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoModel;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
@@ -17,6 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import retrofit2.Call;
 
 public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHolder> {
 
@@ -68,15 +72,20 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
                 .into(holder.profilePhoto);
 
         holder.itemView.setOnClickListener(v -> {
-            Fragment detailsFragment = RepoDetails.newInstance(
+            RepoDetailsFragment.getCommitsData(getCommitsCall(repoList.get(position).getAuthorModel().getRepoAuthor(), repoList.get(position).getRepoTitle()), context);
+            Fragment detailsFragment = RepoDetailsFragment.newInstance(
                     repoList.get(position).getRepoTitle(),
                     repoList.get(position).getAuthorModel().getRepoAuthor(),
                     repoList.get(position).getNumberOfStars(),
-                    repoList.get(position).getRepoURL(),
                     repoList.get(position).getAuthorModel().getThumbnail());
             AppCompatActivity activity = (AppCompatActivity) v.getContext();
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailsFragment).addToBackStack(null).commit();
         });
+    }
+
+    private Call<List<Commit>> getCommitsCall(String login, String name) {
+        GetDataGitHubService service = RetrofitInstance.getRetrofitInstance().create(GetDataGitHubService.class);
+        return service.commitsList(login, name);
     }
 
 

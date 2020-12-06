@@ -13,4 +13,5 @@
     <string name="commits_history_header">Commits History</string>
     <string name="share_repo_button">Share repo</string>
     <string name="go_to_details">Go to details</string>
+    <string name="author_s_avatar">Author\'s avatar</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task;
+package com.dianaszczepankowska.codeaddict_recruitment_task.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,6 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.dianaszczepankowska.codeaddict_recruitment_task.GetDataGitHubService;
+import com.dianaszczepankowska.codeaddict_recruitment_task.R;
+import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoListModel;
+import com.dianaszczepankowska.codeaddict_recruitment_task.ReposAdapter;
+import com.dianaszczepankowska.codeaddict_recruitment_task.RetrofitInstance;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.internal.EverythingIsNonNull;
 
-public class ReposList extends Fragment {
+public class ReposListFragment extends Fragment {
 
     private ReposAdapter reposAdapter;
 
@@ -62,7 +68,7 @@ public class ReposList extends Fragment {
 
             @Override
             public void onFailure(Call<RepoListModel> call, Throwable t) {
-                Toast.makeText(getContext(), "Something went wrong.Please try again later!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Something went wrong. Please try again later!", Toast.LENGTH_SHORT).show();
             }
         });
     }

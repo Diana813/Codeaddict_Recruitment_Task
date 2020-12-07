@@ -197,10 +197,11 @@ public class RepoDetailsFragment extends Fragment {
 
             @Override
             public void onResponse(Call<List<Commit>> call, Response<List<Commit>> response) {
-                assert response.body() != null;
-
+                if(response.body() == null){
+                    return;
+                }
                 //Filling views with commits data
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < response.body().size(); i++) {
                     CommitTextViews commitTextView = commitTextViews.get(i);
                     commitTextView.getAuthor().setText(response.body().get(i).getCommitModel().getCommitAuthor().getCommitAuthorName());
                     commitTextView.getEmail().setText(response.body().get(i).getCommitModel().getCommitAuthor().getEmail());

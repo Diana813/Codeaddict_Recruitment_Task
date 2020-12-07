@@ -2,7 +2,7 @@ package com.dianaszczepankowska.codeaddict_recruitment_task;
 
 import android.widget.TextView;
 
-//This class is designed to easily fill items with commit data
+//This class is created to easily fill items with commits data
 public class CommitTextViews {
 
     private final TextView author;

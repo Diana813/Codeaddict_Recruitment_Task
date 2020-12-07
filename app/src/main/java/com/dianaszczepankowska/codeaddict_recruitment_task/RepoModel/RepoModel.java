@@ -8,18 +8,25 @@ public class RepoModel {
     private final String repoTitle;
     @SerializedName("owner")
     private final AuthorModel authorModel;
+    @SerializedName("html_url")
+    private final String repoURL;
     @SerializedName("stargazers_count")
     private final String numberOfStars;
 
 
-    public RepoModel(String repoTitle, AuthorModel authorModel, String numberOfStars) {
+    public RepoModel(String repoTitle, AuthorModel authorModel, String repoURL, String numberOfStars) {
         this.repoTitle = repoTitle;
         this.authorModel = authorModel;
+        this.repoURL = repoURL;
         this.numberOfStars = numberOfStars;
     }
 
     public String getRepoTitle() {
         return repoTitle;
+    }
+
+    public String getRepoURL() {
+        return repoURL;
     }
 
     public String getNumberOfStars() {

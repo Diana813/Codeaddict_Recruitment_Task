@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Codeaddict_Recruitment_Task</string>
 
-    //Repos list screen
+    <!--Repos list screen-->
     <string name="search_header">Search</string>
     <string name="repos_header">Repositories</string>
 
-    //Repo details screen
+    <!--Repo details screen-->
     <string name="back_nav">Back</string>
     <string name="author_inrtoduction">Repo by</string>
     <string name="stars">Number of stars</string>
@@ -14,4 +14,8 @@
     <string name="share_repo_button">Share repo</string>
     <string name="go_to_details">Go to details</string>
     <string name="author_s_avatar">Author\'s avatar</string>
+
+    <!--Info-->
+    <string name="Loading">Loading…</string>
+    <string name="Fail_to_get_data">Something went wrong. Please try again later!</string>
 </resources>

@@ -2,6 +2,8 @@ package com.dianaszczepankowska.codeaddict_recruitment_task.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.internal.EverythingIsNonNull;
 
-@SuppressLint("StaticFieldLeak")
 public class RepoDetailsFragment extends Fragment {
 
     private Context context;
@@ -41,28 +42,31 @@ public class RepoDetailsFragment extends Fragment {
     private TextView commitNumber1;
     private TextView commitNumber2;
     private TextView commitNumber3;
-    private static TextView firstCommitAuthor;
-    private static TextView secondCommitAuthor;
-    private static TextView thirdCommitAuthor;
-    private static TextView firstCommitEmail;
-    private static TextView secondCommitEmail;
-    private static TextView thirdCommitEmail;
-    private static TextView firstCommitMessage;
-    private static TextView secondCommitMessage;
-    private static TextView thirdCommitMessage;
+    private TextView firstCommitAuthor;
+    private TextView secondCommitAuthor;
+    private TextView thirdCommitAuthor;
+    private TextView firstCommitEmail;
+    private TextView secondCommitEmail;
+    private TextView thirdCommitEmail;
+    private TextView firstCommitMessage;
+    private TextView secondCommitMessage;
+    private TextView thirdCommitMessage;
     private static List<CommitTextViews> commitTextViews;
-
+    private androidx.appcompat.widget.AppCompatButton viewOnlineButton;
+    private androidx.appcompat.widget.AppCompatButton shareButton;
 
     private String repo_title_extra;
     private String repo_author_extra;
     private String repo_number_of_stars_extra;
     private String repo_thumbnail_extra;
+    private String repo_url_extra;
     private static final String EXTRA_REPO_TITLE = "title";
     private static final String EXTRA_REPO_AUTHOR = "author";
     private static final String EXTRA_NUMBER_OF_STARS = "number of stars";
     private static final String EXTRA_REPO_THUMBNAIL = "thumbnail";
+    private static final String EXTRA_REPO_URL = "repo url";
 
-    public static RepoDetailsFragment newInstance(String repoTile, String repoAuthor, String numberOfStars, String thumbnail) {
+    public static RepoDetailsFragment newInstance(String repoTile, String repoAuthor, String numberOfStars, String repoURL, String thumbnail) {
 
         RepoDetailsFragment fragment = new RepoDetailsFragment();
         Bundle args = new Bundle();
@@ -70,6 +74,7 @@ public class RepoDetailsFragment extends Fragment {
         args.putString(EXTRA_REPO_AUTHOR, repoAuthor);
         args.putString(EXTRA_NUMBER_OF_STARS, numberOfStars);
         args.putString(EXTRA_REPO_THUMBNAIL, thumbnail);
+        args.putString(EXTRA_REPO_URL, repoURL);
         fragment.setArguments(args);
         return fragment;
     }
@@ -90,6 +95,7 @@ public class RepoDetailsFragment extends Fragment {
         repo_author_extra = args.getString(EXTRA_REPO_AUTHOR);
         repo_number_of_stars_extra = args.getString(EXTRA_NUMBER_OF_STARS);
         repo_thumbnail_extra = args.getString(EXTRA_REPO_THUMBNAIL);
+        repo_url_extra = args.getString(EXTRA_REPO_URL);
     }
 
     @Nullable
@@ -102,13 +108,20 @@ public class RepoDetailsFragment extends Fragment {
         //This method populates the views with the repository data retrieved from the previous screen
         setRepoData();
 
+        //"Back" button
         setOnBackButtonClickListener();
 
-        //This method gives comites their numbers
+        //This method gives commites their numbers
         setCommitsNumbers();
 
         //Creating this list is needed to fill the commit list items with data
         createListOfCommitsTextViews();
+
+        //"View online" button
+        setViewOnlineButtonOnClickListener();
+
+        //"Share" button
+        setShareButtonClickListener();
 
         return rootView;
     }
@@ -134,6 +147,8 @@ public class RepoDetailsFragment extends Fragment {
         firstCommitMessage = firstCommit.findViewById(R.id.commit_message);
         secondCommitMessage = secondCommit.findViewById(R.id.commit_message);
         thirdCommitMessage = thirdCommit.findViewById(R.id.commit_message);
+        viewOnlineButton = rootView.findViewById(R.id.view_online_button);
+        shareButton = rootView.findViewById(R.id.share_button);
     }
 
 
@@ -174,7 +189,8 @@ public class RepoDetailsFragment extends Fragment {
 
 
     //This method fills the list of recent commits with data
-    // when the user clicks on a specific repository on the previous screen
+    // when the user clicks on a specific repository on the previous screen.
+    //This method is called in ReposAdapter.
     @EverythingIsNonNull
     public static void getCommitsData(Call<List<Commit>> call, Context context) {
         call.enqueue(new Callback<List<Commit>>() {
@@ -194,8 +210,28 @@ public class RepoDetailsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Commit>> call, Throwable t) {
-                Toast.makeText(context, "Something went wrong. Please try again later!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, context.getString(R.string.Fail_to_get_data), Toast.LENGTH_SHORT).show();
             }
+        });
+    }
+
+
+    private void setViewOnlineButtonOnClickListener() {
+        viewOnlineButton.setOnClickListener(v -> {
+            Uri uri = Uri.parse(repo_url_extra);
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        });
+    }
+
+
+    private void setShareButtonClickListener() {
+        shareButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Sharing GitHub URL");
+            intent.putExtra(Intent.EXTRA_TEXT, repo_url_extra);
+            startActivity(Intent.createChooser(intent, "Sharing GitHub URL"));
         });
     }
 }

@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task;
+package com.dianaszczepankowska.codeaddict_recruitment_task.Data;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -8,7 +8,6 @@ public class RetrofitInstance {
 
     private static Retrofit retrofit;
     private static final String BASE_URL = "https://api.github.com/";
-
 
     public static Retrofit getRetrofitInstance() {
 

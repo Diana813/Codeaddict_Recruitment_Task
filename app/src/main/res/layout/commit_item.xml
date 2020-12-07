@@ -11,7 +11,7 @@
         android:id="@+id/commit_number"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="top|center_horizontal"
         android:layout_margin="@dimen/margins"
         android:background="@drawable/rounded_corner_background"
         android:gravity="center"

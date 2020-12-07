@@ -9,9 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dianaszczepankowska.codeaddict_recruitment_task.CommitModel.Commit;
+import com.dianaszczepankowska.codeaddict_recruitment_task.Data.GetDataGitHubService;
+import com.dianaszczepankowska.codeaddict_recruitment_task.Data.RetrofitInstance;
 import com.dianaszczepankowska.codeaddict_recruitment_task.Fragments.RepoDetailsFragment;
 import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoModel;
-import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -65,18 +66,19 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHol
 
         holder.repoTitle.setText(repoList.get(position).getRepoTitle());
         holder.numberOfStars.setText(repoList.get(position).getNumberOfStars());
-
-        Picasso.Builder builder = new Picasso.Builder(context);
-        builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(repoList.get(position).getAuthorModel().getThumbnail())
+        Picasso.with(context).load(repoList.get(position).getAuthorModel().getThumbnail())
+                .fit()
+                .centerCrop()
                 .into(holder.profilePhoto);
 
+        //When you click on an item, the repository data is transferred to the next screen
         holder.itemView.setOnClickListener(v -> {
             RepoDetailsFragment.getCommitsData(getCommitsCall(repoList.get(position).getAuthorModel().getRepoAuthor(), repoList.get(position).getRepoTitle()), context);
             Fragment detailsFragment = RepoDetailsFragment.newInstance(
                     repoList.get(position).getRepoTitle(),
                     repoList.get(position).getAuthorModel().getRepoAuthor(),
                     repoList.get(position).getNumberOfStars(),
+                    repoList.get(position).getRepoURL(),
                     repoList.get(position).getAuthorModel().getThumbnail());
             AppCompatActivity activity = (AppCompatActivity) v.getContext();
             activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, detailsFragment).addToBackStack(null).commit();

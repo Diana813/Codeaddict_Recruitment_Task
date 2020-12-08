@@ -25,20 +25,15 @@ import retrofit2.Call;
 
 public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ReposViewHolder> {
 
-    @SuppressLint("StaticFieldLeak")
-    private static Context context;
+    private Context context;
     private LayoutInflater layoutInflater;
     private List<RepoModel> repoList;
 
     public ReposAdapter(Context context) {
         if (context != null) {
             this.layoutInflater = LayoutInflater.from(context);
-            ReposAdapter.context = context;
+            this.context = context;
         }
-    }
-
-    public static Context getContext() {
-        return context;
     }
 
 

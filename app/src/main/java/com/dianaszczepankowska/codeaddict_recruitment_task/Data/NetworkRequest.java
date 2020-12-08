@@ -1,8 +1,5 @@
 package com.dianaszczepankowska.codeaddict_recruitment_task.Data;
 
-import android.widget.Toast;
-
-import com.dianaszczepankowska.codeaddict_recruitment_task.R;
 import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoListModel;
 
 import androidx.lifecycle.MutableLiveData;
@@ -10,8 +7,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.internal.EverythingIsNonNull;
-
-import static com.dianaszczepankowska.codeaddict_recruitment_task.ReposAdapter.getContext;
 
 public class NetworkRequest {
 
@@ -56,7 +51,7 @@ public class NetworkRequest {
             @Override
             public void onFailure(Call<RepoListModel> call, Throwable t) {
                 reposData.setValue(null);
-                Toast.makeText(getContext(), getContext().getString(R.string.Fail_to_get_data), Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
             }
         });
         return reposData;

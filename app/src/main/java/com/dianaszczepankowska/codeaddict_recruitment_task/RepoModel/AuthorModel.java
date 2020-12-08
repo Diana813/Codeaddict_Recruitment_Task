@@ -10,6 +10,9 @@ public class AuthorModel {
     private final String thumbnail;
 
     public AuthorModel(String repoAuthor, String thumbnail) {
+        if(repoAuthor == null){
+            repoAuthor ="";
+        }
         this.repoAuthor = repoAuthor;
         this.thumbnail = thumbnail;
     }

@@ -15,6 +15,9 @@ public class RepoModel {
 
 
     public RepoModel(String repoTitle, AuthorModel authorModel, String repoURL, String numberOfStars) {
+        if (repoTitle == null) {
+            repoTitle = "";
+        }
         this.repoTitle = repoTitle;
         this.authorModel = authorModel;
         this.repoURL = repoURL;

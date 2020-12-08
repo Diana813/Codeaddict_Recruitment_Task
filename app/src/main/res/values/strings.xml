@@ -18,4 +18,5 @@
     <!--Info-->
     <string name="Loading">Loading…</string>
     <string name="Fail_to_get_data">Something went wrong. Please try again later!</string>
+    <string name="no_Internet">No Internet connection. Please try again later!</string>
 </resources>

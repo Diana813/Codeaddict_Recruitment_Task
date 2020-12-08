@@ -21,5 +21,7 @@ public class MainActivity extends AppCompatActivity {
             fragment = new ReposListFragment();
             fragmentManager.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
+
     }
+
 }

@@ -2,10 +2,12 @@ package com.dianaszczepankowska.codeaddict_recruitment_task.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.dianaszczepankowska.codeaddict_recruitment_task.Data.ReposViewModel;
 import com.dianaszczepankowska.codeaddict_recruitment_task.Data.ReposViewModelFactory;
@@ -27,12 +29,14 @@ public class ReposListFragment extends Fragment {
     private ReposAdapter reposAdapter;
     private ProgressDialog progressDialog;
     private String topic;
+    private Context context;
 
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         reposAdapter = new ReposAdapter(context);
+        this.context = context;
     }
 
 
@@ -94,16 +98,21 @@ public class ReposListFragment extends Fragment {
 
     private void initData() {
 
-        //ViewModelFactory class is created so that a new ViewModel
-        // will be created when the query changes
-        ReposViewModelFactory reposViewModelFactory = new ReposViewModelFactory(Objects.requireNonNull(this.getActivity()).getApplication(), getTopic());
-        ReposViewModel reposViewModel = reposViewModelFactory.create(ReposViewModel.class);
-        reposViewModel.initLiveData(getTopic());
-        reposViewModel.getNetworkRequest().observe(Objects.requireNonNull(getActivity()), newsResponse -> {
-            List<RepoModel> repos = newsResponse.getRepositories();
-            reposAdapter.setReposList(repos);
-            progressDialog.dismiss();
-        });
+        if (isInternetConnected(context)) {
+            //ViewModelFactory class is created so that a new ViewModel
+            // will be created when the query changes
+            ReposViewModelFactory reposViewModelFactory = new ReposViewModelFactory(Objects.requireNonNull(this.getActivity()).getApplication(), getTopic());
+            ReposViewModel reposViewModel = reposViewModelFactory.create(ReposViewModel.class);
+            reposViewModel.initLiveData(getTopic());
+            reposViewModel.getNetworkRequest().observe(Objects.requireNonNull(getActivity()), newsResponse -> {
+                List<RepoModel> repos = newsResponse.getRepositories();
+                reposAdapter.setReposList(repos);
+                progressDialog.dismiss();
+            });
+        } else {
+            Toast.makeText(context, context.getString(R.string.no_Internet), Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private String getTopic() {
@@ -111,6 +120,12 @@ public class ReposListFragment extends Fragment {
             topic = "";
         }
         return topic;
+    }
+
+    public boolean isInternetConnected(Context context) {
+        ConnectivityManager connectivityManager = ((ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE));
+        assert connectivityManager != null;
+        return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
     }
 }
 

@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task.Data;
+package com.dianaszczepankowska.repo_search.Data;
 
 import android.app.Application;
 

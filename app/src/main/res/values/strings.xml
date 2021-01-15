@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Codeaddict_Recruitment_Task</string>
+    <string name="app_name">Repo_Search</string>
 
     <!--Repos list screen-->
     <string name="search_header">Search</string>

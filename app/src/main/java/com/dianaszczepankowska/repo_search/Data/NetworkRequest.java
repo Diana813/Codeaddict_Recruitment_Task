@@ -1,6 +1,6 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task.Data;
+package com.dianaszczepankowska.repo_search.Data;
 
-import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoListModel;
+import com.dianaszczepankowska.repo_search.RepoModel.RepoListModel;
 
 import androidx.lifecycle.MutableLiveData;
 import retrofit2.Call;

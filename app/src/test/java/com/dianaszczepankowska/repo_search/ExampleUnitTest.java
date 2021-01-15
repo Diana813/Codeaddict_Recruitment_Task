@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task;
+package com.dianaszczepankowska.repo_search;
 
 import org.junit.Test;
 

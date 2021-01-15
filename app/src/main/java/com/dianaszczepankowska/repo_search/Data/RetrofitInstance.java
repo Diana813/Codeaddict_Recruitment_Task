@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task.Data;
+package com.dianaszczepankowska.repo_search.Data;
 
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

@@ -1,8 +1,8 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task;
+package com.dianaszczepankowska.repo_search;
 
 import android.os.Bundle;
 
-import com.dianaszczepankowska.codeaddict_recruitment_task.Fragments.ReposListFragment;
+import com.dianaszczepankowska.repo_search.Fragments.ReposListFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

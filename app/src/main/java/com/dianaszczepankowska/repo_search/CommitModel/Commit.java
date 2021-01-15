@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task.CommitModel;
+package com.dianaszczepankowska.repo_search.CommitModel;
 
 import com.google.gson.annotations.SerializedName;
 

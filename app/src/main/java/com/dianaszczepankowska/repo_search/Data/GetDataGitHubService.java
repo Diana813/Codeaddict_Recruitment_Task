@@ -1,7 +1,7 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task.Data;
+package com.dianaszczepankowska.repo_search.Data;
 
-import com.dianaszczepankowska.codeaddict_recruitment_task.CommitModel.Commit;
-import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoListModel;
+import com.dianaszczepankowska.repo_search.CommitModel.Commit;
+import com.dianaszczepankowska.repo_search.RepoModel.RepoListModel;
 
 import java.util.List;
 

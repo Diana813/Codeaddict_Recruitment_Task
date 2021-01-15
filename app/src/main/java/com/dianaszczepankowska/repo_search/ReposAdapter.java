@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task;
+package com.dianaszczepankowska.repo_search;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dianaszczepankowska.codeaddict_recruitment_task.CommitModel.Commit;
-import com.dianaszczepankowska.codeaddict_recruitment_task.Data.GetDataGitHubService;
-import com.dianaszczepankowska.codeaddict_recruitment_task.Data.RetrofitInstance;
-import com.dianaszczepankowska.codeaddict_recruitment_task.Fragments.RepoDetailsFragment;
-import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoModel;
+import com.dianaszczepankowska.repo_search.CommitModel.Commit;
+import com.dianaszczepankowska.repo_search.Data.GetDataGitHubService;
+import com.dianaszczepankowska.repo_search.Data.RetrofitInstance;
+import com.dianaszczepankowska.repo_search.Fragments.RepoDetailsFragment;
+import com.dianaszczepankowska.repo_search.RepoModel.RepoModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

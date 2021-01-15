@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task.Fragments;
+package com.dianaszczepankowska.repo_search.Fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.dianaszczepankowska.codeaddict_recruitment_task.CommitModel.Commit;
-import com.dianaszczepankowska.codeaddict_recruitment_task.CommitTextViews;
-import com.dianaszczepankowska.codeaddict_recruitment_task.R;
+import com.dianaszczepankowska.repo_search.CommitModel.Commit;
+import com.dianaszczepankowska.repo_search.CommitTextViews;
+import com.dianaszczepankowska.repo_search.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

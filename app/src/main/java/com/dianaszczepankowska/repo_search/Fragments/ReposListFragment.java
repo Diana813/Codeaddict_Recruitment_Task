@@ -1,4 +1,4 @@
-package com.dianaszczepankowska.codeaddict_recruitment_task.Fragments;
+package com.dianaszczepankowska.repo_search.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.dianaszczepankowska.codeaddict_recruitment_task.Data.ReposViewModel;
-import com.dianaszczepankowska.codeaddict_recruitment_task.Data.ReposViewModelFactory;
-import com.dianaszczepankowska.codeaddict_recruitment_task.R;
-import com.dianaszczepankowska.codeaddict_recruitment_task.RepoModel.RepoModel;
-import com.dianaszczepankowska.codeaddict_recruitment_task.ReposAdapter;
+import com.dianaszczepankowska.repo_search.Data.ReposViewModel;
+import com.dianaszczepankowska.repo_search.Data.ReposViewModelFactory;
+import com.dianaszczepankowska.repo_search.R;
+import com.dianaszczepankowska.repo_search.RepoModel.RepoModel;
+import com.dianaszczepankowska.repo_search.ReposAdapter;
 
 import java.util.List;
 import java.util.Objects;

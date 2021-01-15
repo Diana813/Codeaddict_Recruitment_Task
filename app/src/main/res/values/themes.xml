@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Codeaddict_Recruitment_Task" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Repo_Search" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/grey_background</item>
         <item name="colorPrimaryVariant">@color/grey_icons</item>
